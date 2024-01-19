@@ -19,4 +19,10 @@ class Bodega extends Model
         'restaurante',
         'hotel',
     ];
+
+        public function vinos()
+        {
+            return $this->hasMany(\App\Models\Vino::class, 'id_bodega', 'id');
+        }
+
 }

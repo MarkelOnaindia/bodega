@@ -6,8 +6,9 @@
     <title>Página Principal</title>
 </head>
 <body>
-    <h1>Bodegas:</h1>
+    <h1>Gestion de Bodegas:</h1>
 
+    <button>Añadir Bodega</button>
     @if(isset($bodegas) && count($bodegas) > 0)
         <table>
             <thead>
@@ -17,12 +18,7 @@
                     <th>Dirección</th>
                     <th>Email</th>
                     <th>Teléfono</th>
-                    <th>Persona de Contacto</th>
-                    <th>Fundación</th>
-                    <th>Restaurante</th>
-                    <th>Hotel</th>
-                    <th>Fecha de Creación</th>
-                    <th>Última Actualización</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,12 +29,10 @@
                         <td>{{ $bodega->direccion }}</td>
                         <td>{{ $bodega->email }}</td>
                         <td>{{ $bodega->telefono }}</td>
-                        <td>{{ $bodega->persona_contacto }}</td>
-                        <td>{{ $bodega->fundacion }}</td>
-                        <td>{{ $bodega->restaurante ? 'Sí' : 'No' }}</td>
-                        <td>{{ $bodega->hotel ? 'Sí' : 'No' }}</td>
-                        <td>{{ $bodega->created_at }}</td>
-                        <td>{{ $bodega->updated_at }}</td>
+                        <td>
+                            <a href="{{ route('bodegas.show', ['bodega' => $bodega->id]) }}"><button>Entrar</button></a>
+                            <button>Eliminar</button>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
