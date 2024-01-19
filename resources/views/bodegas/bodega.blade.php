@@ -74,7 +74,7 @@
         <p>No hay vinos disponibles en esta bodega.</p>
     @endif
 
-    <a href="{{ route('bodegas.index') }}">Volver</a>
+    <button><a href="{{ route('bodegas.index') }}">Volver</a></button>
 
 </body>
 </html>

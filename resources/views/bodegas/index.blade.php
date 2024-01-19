@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-
+        1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+        crossorigin="anonymous">
 </head>
 <body>
     <h1>Gestion de Bodegas:</h1>
 
-    <button>Añadir Bodega</button>
+    <button><a href="{{ route('bodegas.bodegaCreate') }}" class="btn btn-success">Añadir Bodega</a></button>
     @if(isset($bodegas) && count($bodegas) > 0)
         <table>
             <thead>
@@ -30,8 +35,12 @@
                         <td>{{ $bodega->email }}</td>
                         <td>{{ $bodega->telefono }}</td>
                         <td>
-                            <a href="{{ route('bodegas.bodega', ['bodega' => $bodega->id]) }}"><button>Entrar</button></a>
-                            <button>Eliminar</button>
+                            <a href="{{ route('bodegas.bodega', ['bodega' => $bodega->id]) }}" class="btn btn-info">Entrar</a>
+                            <form action="{{ route('bodegas.destroy', ['bodega' => $bodega->id]) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar esta bodega?')">Eliminar</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
@@ -42,3 +51,4 @@
     @endif
 </body>
 </html>
+

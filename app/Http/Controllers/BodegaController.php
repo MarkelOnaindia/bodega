@@ -21,7 +21,7 @@ class BodegaController extends Controller
      */
     public function create()
     {
-        return view('bodegas.create');
+        return view('bodegas.bodegaCreate');
     }
 
     /**
