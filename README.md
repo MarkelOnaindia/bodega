@@ -67,3 +67,6 @@ Esta aplicación ha sido desarrollada para el Departamento de Turismo de la Dipu
 - Los controladores interactúan con los modelos para realizar operaciones en los datos.
 - Los modelos gestionan y almacenan la información de las bodegas y vinos.
 - El flujo de datos sigue el patrón MVC para mantener una estructura clara y modular.
+
+### BBDD:
+   CREATE DATABASE IF NOT EXISTS `bodegas`;
