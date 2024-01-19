@@ -30,7 +30,7 @@
                         <td>{{ $bodega->email }}</td>
                         <td>{{ $bodega->telefono }}</td>
                         <td>
-                            <a href="{{ route('bodegas.show', ['bodega' => $bodega->id]) }}"><button>Entrar</button></a>
+                            <a href="{{ route('bodegas.bodega', ['bodega' => $bodega->id]) }}"><button>Entrar</button></a>
                             <button>Eliminar</button>
                         </td>
                     </tr>
