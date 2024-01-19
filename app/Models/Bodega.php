@@ -9,19 +9,14 @@ class Bodega extends Model
 {
     use HasFactory;
 
-    public function up(){
-        Schema::create('bodegas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->string('direccion')->nullable();
-            $table->string('email')->nullable();
-            $table->string('telefono')->nullable();
-            $table->string('persona_contacto')->nullable();
-            $table->date('fundacion')->nullable();
-            $table->boolean('restaurante')->default(false);
-            $table->boolean('hotel')->default(false);
-            $table->timestamps();
-        });
-    }
-
+    protected $fillable = [
+        'nombre',
+        'direccion',
+        'email',
+        'telefono',
+        'persona_contacto',
+        'fundacion',
+        'restaurante',
+        'hotel',
+    ];
 }

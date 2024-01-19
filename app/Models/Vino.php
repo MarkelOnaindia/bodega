@@ -9,17 +9,17 @@ class Vino extends Model
 {
     use HasFactory;
 
-    public function up(){
-        Schema::create('vinos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->string('descripcion');
-            $table->integer('anio')->nullable();
-            $table->string('alcohol');
-            $table->string('tipo')->nullable();
-            $table->foreignId('id_bodega')->constrained('bodegas')->onDelete('cascade');
-            $table->timestamps();
-        });
-    }
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'anio',
+        'alcohol',
+        'tipo',
+        'id_bodega',
+    ];
 
+    public function bodega()
+    {
+        return $this->belongsTo(Bodega::class, 'id_bodega');
+    }
 }
