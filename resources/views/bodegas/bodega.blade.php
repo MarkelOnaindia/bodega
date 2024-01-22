@@ -51,24 +51,18 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Año</th>
-                    <th>Alcohol</th>
                     <th>Tipo</th>
-                    <th>Accion</th>
+                    <th>Entrar</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($bodega->vinos as $vino)
                     <tr>
-                        <td>{{ isset($vino->id) ? $vino->id : '' }}</td>
                         <td>{{ isset($vino->nombre) ? $vino->nombre : '' }}</td>
-                        <td>{{ isset($vino->descripcion) ? $vino->descripcion : '' }}</td>
-                        <td>{{ isset($vino->anio) ? $vino->anio : '' }}</td>
-                        <td>{{ isset($vino->alcohol) ? $vino->alcohol : '' }}</td>
                         <td>{{ isset($vino->tipo) ? $vino->tipo : '' }}</td>
+                        <td><a href="{{ route('vinos.vino', ['vino' => $vino->id]) }}" class="btn btn-info">Entrar</a></td>
                         <td>
                             <form action="{{ route('vinos.destroy', ['vino' => $vino->id]) }}" method="POST">
                                 @csrf
