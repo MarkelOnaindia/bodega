@@ -31,7 +31,6 @@ class BodegaController extends Controller
     {
         $request->validate([
             'nombre' => 'required|string',
-            // Añade aquí las validaciones para otros campos
         ]);
 
         Bodega::create($request->all());

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bodega</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 </head>
 <body>
     <h1>Datos Bodega</h1>
@@ -74,7 +76,9 @@
         <p>No hay vinos disponibles en esta bodega.</p>
     @endif
 
-    <button><a href="{{ route('bodegas.index') }}">Volver</a></button>
+    <a class="btn btn-primary" href="{{ route('vinos.vinoCreate', ['id_bodega' => $bodega->id]) }}">Agregar Nuevo Vino</a>
+
+    <a class="btn btn-secondary" href="{{ route('bodegas.index') }}">Volver</a>
 
 </body>
 </html>
