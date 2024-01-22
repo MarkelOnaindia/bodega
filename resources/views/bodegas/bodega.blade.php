@@ -57,6 +57,7 @@
                     <th>Año</th>
                     <th>Alcohol</th>
                     <th>Tipo</th>
+                    <th>Accion</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,6 +69,13 @@
                         <td>{{ isset($vino->anio) ? $vino->anio : '' }}</td>
                         <td>{{ isset($vino->alcohol) ? $vino->alcohol : '' }}</td>
                         <td>{{ isset($vino->tipo) ? $vino->tipo : '' }}</td>
+                        <td>
+                            <form action="{{ route('vinos.destroy', ['vino' => $vino->id]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </td>                    
                     </tr>
                 @endforeach
             </tbody>

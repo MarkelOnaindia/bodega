@@ -30,3 +30,5 @@ Route::delete('/bodegas/{bodega}', [BodegaController::class, 'destroy'])->name('
 // Vinos
 Route::get('/vinos/create/{id_bodega}', [VinoController::class, 'create'])->name('vinos.vinoCreate');
 Route::post('/vinos', [VinoController::class, 'store'])->name('vinos.store');
+Route::delete('/vinos/{vino}', [VinoController::class, 'destroy'])->name('vinos.destroy');
+

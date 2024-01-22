@@ -72,10 +72,12 @@ class VinoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        Vino::findOrFail($id)->delete();
+        $vino = Vino::findOrFail($id);
+        $vino->delete();
 
-        return redirect()->route('bodegas.index')->with('success', 'Vino eliminado exitosamente');
+        return redirect()->back()->with('success', 'Vino eliminado exitosamente');
     }
+
 }
